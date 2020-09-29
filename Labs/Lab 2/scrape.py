@@ -35,8 +35,8 @@ def getCountDict(cleanList):
     return sortedDict
 
 # Working Example
-#rawContent = getPageContent('https://en.wikipedia.org/wiki/Python_(programming_language)')
-#cleanedContent = cleanHTML(rawContent)
-#cleanList = wordList(cleanedContent)
+rawContent = getPageContent('https://en.wikipedia.org/wiki/Python_(programming_language)')
+cleanedContent = cleanHTML(rawContent)
+cleanList = wordList(cleanedContent)
 #print(getCount('mutable', cleanList))
-#print(str(getCountDict(cleanList)))
+print(str(getCountDict(cleanList)))
