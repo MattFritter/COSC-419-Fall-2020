@@ -6,10 +6,10 @@ In this lab, we'll be exploring ways of securing our web application against XSS
 ## Table of Contents
 - [Server Camouflage](#camouflage)
 - [Client-Side XSS Protection](#client-side)
-- [Server-Side XSS & SQLi Protection](#server-side)
+- [Server-Side USer Input Validation](#server-side)
 
 <a name="camouflage"></a>
-## Camouflaging our Server (6 marks)
+## Camouflaging our Server (3 marks)
 
 Presently, our server is returning detailed information about our web stack, including the Apache and PHP versions currently used, and the underlying operating system. Giving away this data makes it easier for bad actors to identify potential attacks based on version-specific and software-specific vulnerabilities.
 
@@ -65,7 +65,7 @@ Which means that we've successfully fooled HTTPRecon into believing our server i
 Remember that obscurity is not security. Disguising our web server can help prevent some attacks, depending on the attackers fingerprinting technique, but we shouldn't consider it a "security" measure. What we're doing is deflecting low-effort attackers, allowing us to focus on more serious security concerns. You can find out more about fingerprinting at the OWASP website <a href="https://www.owasp.org/index.php/Fingerprint_Web_Server_(OTG-INFO-002)">here</a>.
 
 <a name="client-side"></a>
-## Client Side XSS Protection (4 marks)
+## Client Side XSS Protection (3 marks)
 
 In order to protect our users against potential XSS attacks, we'll go ahead and implement a Content Security Policy (CSP), and enable XSS protection using HTTP headers.
 
@@ -103,7 +103,7 @@ Add one more HTTP header with a name of ```X-XSS-Protection``` and a value of ``
 If you want to read more about Content Security Policies, the Mozilla Developer Network (MDN) documentation is excellent, available <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">here</a>.
 
 <a name="server-side"></a>
-## Server-Side USer Input Validation (4 marks)
+## Server-Side USer Input Validation (3 marks)
 
 Now, let's go ahead and do some server-side validation of data to provide some **real** security. We'll do this using Laravel's ```validate()``` function in some new middleware that we'll create. To begin, we can create a new middleware file with PHP artisan:
 
