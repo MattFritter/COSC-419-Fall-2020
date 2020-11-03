@@ -6,7 +6,7 @@ In this lab, we'll be exploring ways of securing our web application against XSS
 ## Table of Contents
 - [Server Camouflage](#camouflage)
 - [Client-Side XSS Protection](#client-side)
-- [Server-Side USer Input Validation](#server-side)
+- [Server-Side User Input Validation](#server-side)
 
 <a name="camouflage"></a>
 ## Camouflaging our Server (3 marks)
@@ -103,7 +103,7 @@ Add one more HTTP header with a name of ```X-XSS-Protection``` and a value of ``
 If you want to read more about Content Security Policies, the Mozilla Developer Network (MDN) documentation is excellent, available <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">here</a>.
 
 <a name="server-side"></a>
-## Server-Side USer Input Validation (3 marks)
+## Server-Side User Input Validation (3 marks)
 
 Now, let's go ahead and do some server-side validation of data to provide some **real** security. We'll do this using Laravel's ```validate()``` function in some new middleware that we'll create. To begin, we can create a new middleware file with PHP artisan:
 
