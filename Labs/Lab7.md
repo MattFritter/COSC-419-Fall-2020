@@ -80,7 +80,7 @@ If you go to your homepage now, you'll probably notice that this has completely 
 Use these errors as a guide for how to write your CSP, such that you allow resources from your CDNs and Google Fonts (assumed to be safe), but block other sources. To break it down:
 
 1. You'll need to approve 'self', 'unsafe-inline', stackpath.boostrapcdn.com, and fonts.googleapis.com as sources in your style-src
-2. You'll need to approve 'self', cdnjs.cloudflare.com, code.jquery.com, and stackpath.bootstrapcdn.com as sources for script-src
+2. You'll need to approve 'self', 'unsafe-inline', cdnjs.cloudflare.com, code.jquery.com, and stackpath.bootstrapcdn.com as sources for script-src
 3. You'll need to approve 'self', 'unsafe-inline', and fonts.gstatic.com as sources for font-src
 
 The format for a Content Security Policy is as follows:
