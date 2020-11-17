@@ -60,7 +60,7 @@ First, we'll re-open the ```/etc/fail2ban/jail.local``` file. Then, below the *[
 * Enable the [ssh-longterm] jail
 * Use port 888 for the [ssh-longterm] jail
 
-You'll also need to a couple additional entries to your *[ssh-longterm]* jail. First, add an entry: ```filter = sshd-aggressive```. This enables a more aggressive filter for parsing the SSH logs for intrusion attempts. Then, two entries: ```logpath = %(sshd_log)s``` and ```backend = %(sshd_backend)s```. These entries help Fail2Ban identify the location of the SSH log files and backend for retrieving login data.
+You'll also need to a couple additional entries to your *[ssh-longterm]* jail. First, add an entry: ```filter = sshd```. This enables a more aggressive filter for parsing the SSH logs for intrusion attempts. Then, two entries: ```logpath = %(sshd_log)s``` and ```backend = %(sshd_backend)s```. These entries help Fail2Ban identify the location of the SSH log files and backend for retrieving login data.
 
 Now, restart your Fail2Ban service, and run the following command: ```fail2ban-client status```. If everything went correctly, it should return that you have two jails:
 
