@@ -82,7 +82,7 @@ Now, we can use Git to clone the latest rules into this folder:
 	yum install git
 	git clone https://github.com/SpiderLabs/owasp-modsecurity-crs.git
 	
-Rename the ```crs-setup.conf.example``` to ```crs-setup.conf```. Move this file to your Apache ```conf.d``` folder, which is located at ```/etc/httpd.conf.d```.
+Rename the ```crs-setup.conf.example``` to ```crs-setup.conf```. Move this file to your Apache ```conf.d``` folder, which is located at ```/etc/httpd/conf.d```.
 
 Then, move all the files from the ```/etc/httpd/modsecurity.d/owasp-modsecurity-crs/rules``` directory into the ```/etc/httpd/modsecurity.d/activated_rules``` folder.
 
@@ -100,7 +100,9 @@ You can also try a XSS-style exploit:
 	
 Both of these should result in a 403 Forbidden error message, as ModSecurity will catch the attempted SQLi/XSS attack, and return an error message instead.
 
-Now, if we go to our log at ```/etc/httpd/logs/modsec_audit.log```, we should be able to scroll to the bottom of the file and find our rule that is causing issues. In my case, the rule is:
+Now try using your application, as a normal user would. See if you get any 403 forbidden errors while doing so. If so, this is a *false positive*, and we'll need to modify which rules are enabled to prevent it.
+
+If you get a 403 forbidden error on a normal web page, try looking at your log at ```/etc/httpd/logs/modsec_audit.log```. We should be able to scroll to the bottom of the file and find our rule that is causing issues. In my case, the rule is:
 
 	REQUEST-920-PROTOCOL-ENFORCEMENT
 	
