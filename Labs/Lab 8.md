@@ -92,11 +92,11 @@ If you visit your website now, you'll probably notice that every link now takes 
 
 Find the line that says ```SecRuleEngine On``` near the top of the file. Change this to ```SecRuleEngine DetectionOnly```. Now, ModSecurity will log when rules are broken, but not block or drop the connection. If you can't get an error, try making a GET request for a page, with the following GET query string:
 
-	http://<my IP address>?q=' OR 1=1--
+	http://<my IP address>/page?q=' OR 1=1--
 
 You can also try a XSS-style exploit:
 
-	http://<my IP address>?q=<script>alert("hello")</script>
+	http://<my IP address>/page?q=<script>alert("hello")</script>
 	
 Both of these should result in a 403 Forbidden error message, as ModSecurity will catch the attempted SQLi/XSS attack, and return an error message instead.
 
